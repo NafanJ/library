@@ -23,6 +23,9 @@ body{
     box-shadow:0px 1px 1px var(--grey);
 }
 
+a{text-decoration: none;}
+a:visited { text-decoration: none; color:var(--grey) }
+
 h3{
     font-size: 2rem;
     color: var(--grey);
