@@ -11,14 +11,14 @@ function addBookToLibrary() {
     const book = new Book(
         'Crime And Punishment',
         'Fyodor Dostoevsky',
-        295,
+        720,
         true);
 
     myLibrary.push(book)
-    console.log(myLibrary)
 }
 
 function displayBooks() {
+    console.log(myLibrary)
 
     for (let i = 0; i < myLibrary.length; i++) {
 
