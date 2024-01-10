@@ -23,6 +23,11 @@ body{
     box-shadow:0px 1px 1px var(--grey);
 }
 
+h3{
+    font-size: 2rem;
+    color: var(--grey);
+}
+
 .profile-picture {
     width: 5rem;
     height: auto;
