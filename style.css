@@ -35,6 +35,12 @@ body{
     text-align: center;
 }
 
+#add-book{
+    width: 5rem;
+    height: 2rem;
+    align-self: center;
+}
+
 .book-list{
     display: grid;
     gap: 10px;

@@ -1,3 +1,4 @@
+const button = document.getElementById("add-book")
 const myLibrary = [];
 
 function Book(title, author, pages, read) {
@@ -18,11 +19,11 @@ function addBookToLibrary(title, author, pages, read) {
 }
 
 function displayBooks() {
-    console.log(myLibrary)
+    const bookList = document.getElementsByClassName('book-list')
+    // Clear list before updating with new entries - prevents dup
+    bookList[0].innerHTML = ''
 
     for (let i = 0; i < myLibrary.length; i++) {
-
-        const bookList = document.getElementsByClassName('book-list')
 
         const card = document.createElement('div')
         card.className = 'card'
@@ -71,4 +72,9 @@ for (let i = 0; i < 20; i++) {
         true)
 }
 
-displayBooks()
+displayBooks();
+
+button.addEventListener("click", function() {
+    addBookToLibrary('test', 'test', 285, true)
+    displayBooks();
+  });
