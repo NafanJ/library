@@ -37,7 +37,7 @@ function displayBooks() {
         authorElement.appendChild(author)
 
         const pagesElement = document.createElement('p')
-        const pages = document.createTextNode(myLibrary[i]['pages'])
+        const pages = document.createTextNode(myLibrary[i]['pages'] + ' pages')
         pagesElement.appendChild(pages)
 
         const readElement = document.createElement('p')
@@ -52,6 +52,7 @@ function displayBooks() {
         bookList[0].appendChild(card)
     }
 }
+
 for (let i = 0; i < 20; i++) {
     addBookToLibrary(
         'Crime And Punishment',
