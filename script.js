@@ -75,6 +75,8 @@ for (let i = 0; i < 20; i++) {
 displayBooks();
 
 button.addEventListener("click", function() {
+    // Open Modal Here
+    // @TODO: Call functions below when modal is closed probs in another function
     addBookToLibrary('test', 'test', 285, true)
     displayBooks();
   });
