@@ -7,12 +7,12 @@ function Book(title, author, pages, read) {
     this.read = read;
 }
 
-function addBookToLibrary() {
+function addBookToLibrary(title, author, pages, read) {
     const book = new Book(
-        'Crime And Punishment',
-        'Fyodor Dostoevsky',
-        720,
-        true);
+        title,
+        author,
+        pages,
+        read);
 
     myLibrary.push(book)
 }
@@ -53,6 +53,21 @@ function displayBooks() {
     }
 }
 for (let i = 0; i < 20; i++) {
-    addBookToLibrary()
+    addBookToLibrary(
+        'Crime And Punishment',
+        'Fyodor Dostoevsky',
+        720,
+        true)
+    addBookToLibrary(
+        '1984',
+        'George Orwell',
+        449,
+        false)
+    addBookToLibrary(
+        'To Kill A Mockingbird',
+        'Harper Lee',
+        398,
+        true)
 }
+
 displayBooks()
