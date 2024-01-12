@@ -6,6 +6,7 @@ function Book(title, author, pages, read) {
     this.author = author;
     this.pages = pages;
     this.read = read;
+    this.index = myLibrary.length
 }
 
 function addBookToLibrary(title, author, pages, read) {
@@ -14,9 +15,24 @@ function addBookToLibrary(title, author, pages, read) {
         author,
         pages,
         read);
-
     myLibrary.push(book)
 }
+
+addBookToLibrary(
+    'Crime And Punishment',
+    'Fyodor Dostoevsky',
+    720,
+    true)
+addBookToLibrary(
+    '1984',
+    'George Orwell',
+    449,
+    false)
+addBookToLibrary(
+    'To Kill A Mockingbird',
+    'Harper Lee',
+    398,
+    true)
 
 function displayBooks() {
     const bookList = document.getElementsByClassName('book-list')
@@ -45,38 +61,37 @@ function displayBooks() {
         const read = document.createTextNode(myLibrary[i]['read'])
         readElement.appendChild(read)
 
+        const removeElement = document.createElement('button')
+        removeElement.className = 'remove-button'
+        removeElement.index = i
+
+        const remove = document.createTextNode('Remove');
+        removeElement.appendChild(remove)
+
+        removeElement.addEventListener("click", function () {
+            console.log(removeElement.index);
+            if (removeElement.index > -1) {
+                myLibrary.splice(removeElement.index, 1);
+            }
+            displayBooks()
+        });
+
         card.appendChild(titleElement)
         card.appendChild(authorElement)
         card.appendChild(pagesElement)
         card.appendChild(readElement)
+        card.appendChild(removeElement)
 
         bookList[0].appendChild(card)
     }
 }
 
-for (let i = 0; i < 20; i++) {
-    addBookToLibrary(
-        'Crime And Punishment',
-        'Fyodor Dostoevsky',
-        720,
-        true)
-    addBookToLibrary(
-        '1984',
-        'George Orwell',
-        449,
-        false)
-    addBookToLibrary(
-        'To Kill A Mockingbird',
-        'Harper Lee',
-        398,
-        true)
-}
-
 displayBooks();
 
-button.addEventListener("click", function() {
+button.addEventListener("click", function () {
     // Open Modal Here
     // @TODO: Call functions below when modal is closed probs in another function
-    addBookToLibrary('test', 'test', 285, true)
+    addBookToLibrary('Book Title', 'Author', 285, true)
     displayBooks();
-  });
+    console.log(myLibrary)
+});
