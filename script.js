@@ -1,6 +1,6 @@
 const button = document.getElementById("add-book")
 const bookList = document.querySelector('.book-list');
-const myLibrary = [];
+let myLibrary = [];
 
 class Book {
     constructor(title, author, pages, read) {
@@ -61,6 +61,7 @@ function createBookCard(book, index) {
     removeButton.textContent = 'Remove';
     removeButton.addEventListener('click', () => {
         myLibrary.splice(index, 1);
+        saveBooks();
         displayBooks();
     });
 
@@ -81,7 +82,18 @@ function displayBooks() {
     });
 }
 
+// Try to load books from localStorage or initialize an empty array
+myLibrary = JSON.parse(localStorage.getItem('myLibrary')) || [];
+
+// Function to save current state of books to localStorage
+function saveBooks() {
+    localStorage.setItem('myLibrary', JSON.stringify(myLibrary));
+}
+
 displayBooks();
+
+
+// Modal Logic 
 
 // Initialize an empty array to store book objects
 var books = [];
@@ -129,6 +141,9 @@ document.getElementById("bookForm").onsubmit = function(event) {
 
     // Optional: console log to see the updated books array
     console.log(myLibrary);
+
+    // Save books to localStorage
+    saveBooks();
 
     // Close the modal
     modal.style.display = "none";
