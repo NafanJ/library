@@ -15,30 +15,6 @@ function addBookToLibrary(title, author, pages, read) {
     const book = new Book(title, author, pages, read);
     myLibrary.push(book)
 }
-/*
-for (let i = 0; i < 20; i++) {
-    addBookToLibrary(
-        'Crime And Punishment',
-        'Fyodor Dostoevsky',
-        720,
-        true
-    );
-
-    addBookToLibrary(
-        '1984',
-        'George Orwell',
-        449,
-        false
-    );
-
-    addBookToLibrary(
-        'To Kill A Mockingbird',
-        'Harper Lee',
-        398,
-        true
-    );
-}*/
-
 
 function createTextElement(tag, className, text) {
     const element = document.createElement(tag);
@@ -74,6 +50,7 @@ function createBookCard(book, index) {
     return card;
 }
 
+// Refresh book list
 function displayBooks() {
     bookList.innerHTML = '';
     myLibrary.forEach((book, index) => {
@@ -138,9 +115,6 @@ document.getElementById("bookForm").onsubmit = function(event) {
 
     // Add the new book to the array
     myLibrary.push(newBook);
-
-    // Optional: console log to see the updated books array
-    console.log(myLibrary);
 
     // Save books to localStorage
     saveBooks();
